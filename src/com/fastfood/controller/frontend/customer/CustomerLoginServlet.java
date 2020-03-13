@@ -1,4 +1,4 @@
-package com.fastfood.controllers.frontend.customer;
+package com.fastfood.controller.frontend.customer;
 
 import java.io.IOException;
 import javax.servlet.ServletException;

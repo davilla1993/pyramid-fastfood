@@ -19,6 +19,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.persistence.Transient;
 
 
 @Entity
@@ -153,6 +154,7 @@ public class Order implements java.io.Serializable {
 		this.orderDetails = orderDetails;
 	}
 	
+	@Transient
 	public int getItemCopies() {
 		int total = 0;
 		for(OrderDetail orderDetail : orderDetails) {

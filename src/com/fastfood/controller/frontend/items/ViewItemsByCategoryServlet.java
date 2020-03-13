@@ -1,4 +1,4 @@
-package com.fastfood.controllers.frontend.items;
+package com.fastfood.controller.frontend.items;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
