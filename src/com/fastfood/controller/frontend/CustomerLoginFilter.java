@@ -48,7 +48,7 @@ public class CustomerLoginFilter implements Filter {
 			String redirectURL = requestURL;
 			
 			if(queryString != null) {
-				redirectURL = redirectURL .concat("?").concat(queryString);
+				redirectURL = redirectURL.concat("?").concat(queryString);
 			}
 			session.setAttribute("redirectURL", requestURL);
 			String loginPage = "frontend/login.jsp";

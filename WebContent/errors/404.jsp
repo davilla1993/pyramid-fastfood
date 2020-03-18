@@ -12,8 +12,12 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
  		<link href='http://fonts.googleapis.com/css?family=Holtwood+One+SC' rel='stylesheet' type='text/css'>
+ 		<link rel="stylesheet" href="${pageContext.request.contextPath}/css/styles.css">
+ 		
 	</head>
      <body>
+     	<h1 class="text-logo"><span class="glyphicon glyphicon-cutlery"></span>PYRAMID FASTFOOD<span class="glyphicon glyphicon-cutlery"></span></h1>
+     
 			<div class="container">
         		<h1 class="display-1 text-center">404</h1>
         		<p class="lead text-center">Page not found. You can

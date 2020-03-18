@@ -15,8 +15,7 @@
         <link rel="stylesheet" href="${pageContext.request.contextPath}/css/styles.css">
 	</head>
        <body>
-       		
-			<div class="container site">
+		<div class="container site">
 			<jsp:directive.include file="header.jsp" />
 				<div class="tab-content">
 					<c:forEach var="item" items="${listFirstCategoryItems}" varStatus="status">
@@ -27,7 +26,7 @@
 								<div class="caption">
 									<h4>${item.name}</h4>
 									<p>${item.description}</p>
-									<a href="#" class="btn btn-order" role="button"><span class="glyphicon glyphicon-shopping-cart"></span>Commander</a>
+									<a href="view_item?id=${item.iditem}" class="btn btn-order" role="button" ><span class="glyphicon glyphicon-shopping-cart"></span> VOIR DETAILS</a>
 								</div>
 							</div>
 						</div>

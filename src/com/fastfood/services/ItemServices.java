@@ -173,4 +173,15 @@ public class ItemServices {
 		
 	}
 
+	public void viewItemDetail() throws ServletException, IOException {
+		Integer iditem = Integer.parseInt(request.getParameter("id"));
+		Items item = itemDao.get(iditem);
+		
+		request.setAttribute("item", item);
+		
+		String detailPage = "frontend/item_detail.jsp";
+		RequestDispatcher dispatcher = request.getRequestDispatcher(detailPage);
+		dispatcher.forward(request, response);
+	}
+
 }

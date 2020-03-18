@@ -12,8 +12,11 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
  		<link href='http://fonts.googleapis.com/css?family=Holtwood+One+SC' rel='stylesheet' type='text/css'>
+ 		<link rel="stylesheet" href="${pageContext.request.contextPath}/css/styles.css">
+ 
 	</head>
        <body>
+       		<h1 class="text-logo"><span class="glyphicon glyphicon-cutlery"></span>PYRAMID FASTFOOD<span class="glyphicon glyphicon-cutlery"></span></h1>
        		<div class="color-line"></div>
     <div class="container-fluid">
         <div class="row">
