@@ -18,16 +18,18 @@
      <body>
      	<h1 class="text-logo"><span class="glyphicon glyphicon-cutlery"></span>PYRAMID FASTFOOD<span class="glyphicon glyphicon-cutlery"></span></h1>
      
-			<div class="container">
+		 <div class="container admin">
+		    <div >
         		<h1 class="display-1 text-center">404</h1>
         		<p class="lead text-center">Page not found. You can
           		<a href="javascript:history.back()">go back</a> to the previous page, or
           		<a href="${pageContext.request.contextPath}">return home</a>.</p>
 			</div>&nbsp;&nbsp;&nbsp;&nbsp;
-		<div class="row">
-        	<div class="col-md-12 col-md-12 col-sm-12 col-xs-12 text-center login-footer">
+			
+			<div class="col-md-12 col-md-12 col-sm-12 col-xs-12 text-center login-footer">
                 <p>Copyright © 2020 <a href="#">Pyramid Tech</a> All rights reserved.</p>
             </div>
+        	
          </div>
 	</body>
 </html>

@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.fastfood.security.HashGenerationException;
 import com.fastfood.services.CustomerServices;
 
 
@@ -28,7 +29,13 @@ public class RegisterCustomerServlet extends HttpServlet {
 
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+		CustomerServices customerServices = new CustomerServices(request, response);
+		try {
+			customerServices.registerCustomer();
+		} catch (ArrayIndexOutOfBoundsException | HashGenerationException e) {
+			System.out.println("Problem from RegisterCustomerServlet");
+			e.printStackTrace();
+		}
 	}
 
 }

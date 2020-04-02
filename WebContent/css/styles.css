@@ -2,6 +2,11 @@ body
 {
     background: url(../images/bg.png);
 }
+
+body .no-background
+{
+    background-color : white ;
+}
 .site
 {
     font-family: 'Holtwood One SC', sans-serif;
@@ -111,4 +116,8 @@ body
     width: 50%;
     margin: 0px auto;
     float: none;
+}
+
+.error {
+	background-color : red;
 }

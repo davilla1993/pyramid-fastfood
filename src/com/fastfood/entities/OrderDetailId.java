@@ -19,7 +19,7 @@ public class OrderDetailId implements java.io.Serializable {
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "iditem", insertable = false, updatable = false , nullable = false)
 	public Items getItems() {
-		return items;
+		return this.items;
 	}
 
 	public void setItems(Items items) {
@@ -29,7 +29,7 @@ public class OrderDetailId implements java.io.Serializable {
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "idorder", insertable = false, updatable = false , nullable = false)
 	public Order getOrder() {
-		return order;
+		return this.order;
 	}
 
 	public void setOrder(Order order) {

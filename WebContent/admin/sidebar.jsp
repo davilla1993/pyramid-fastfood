@@ -67,7 +67,7 @@
           <span>Orders</span>
         </a>
         <div class="dropdown-menu" aria-labelledby="pagesDropdown">
-          <a class="dropdown-item" href="#">All orders</a>
+          <a class="dropdown-item" href="list_order">All orders</a>
         </div>
       </li>
       

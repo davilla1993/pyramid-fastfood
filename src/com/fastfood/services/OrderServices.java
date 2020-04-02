@@ -100,9 +100,7 @@ public class OrderServices {
 		String recipientPhone = request.getParameter("recipientPhone");
 		String address = request.getParameter("address");
 		String city = request.getParameter("city");
-		String zipcode = request.getParameter("zipcode");
-		String country = request.getParameter("country");
-		String shippingAddress = address + "," + city + "," + zipcode + "," + country;
+		String shippingAddress = address + "," + city;
 		
 		Order order = new Order();
 		order.setRecipientName(recipientName);
@@ -141,12 +139,53 @@ public class OrderServices {
 		
 		shoppingCart.clear();
 		
-		String message = "Thank you. Your order has been received. We will deliver you within a few days.";
+		String message = "Thank you. Your order has been received. We will deliver you within one hour.";
+		String type = "alert alert-success alert-dismiss fade=show";
+		
 		request.setAttribute("message", message);
+		request.setAttribute("type", type);
+		
 		String messagePage = "frontend/message.jsp";
 		RequestDispatcher dispatcher = request.getRequestDispatcher(messagePage);
 		dispatcher.forward(request, response);
 		
+	}
+
+	public void listOrderByCustomer() throws ServletException, IOException {
+		HttpSession session = request.getSession();
+		Customer customer = (Customer) session.getAttribute("loggedCustomer");
+		List<Order> listOrders = orderDao.listByCustomer(customer.getIdcustomer());
+		request.setAttribute("listOrders", listOrders);
+		
+		String historyPage = "frontend/order_list.jsp";
+		RequestDispatcher dispatcher = request.getRequestDispatcher(historyPage);
+		dispatcher.forward(request, response);
+		
+	}
+
+	public void showOrderDetailForCustomer() throws ServletException, IOException {
+		int idorder = Integer.parseInt(request.getParameter("id"));
+		
+		HttpSession session = request.getSession();
+		Customer customer = (Customer) session.getAttribute("loggedCustomer");
+		
+		Order order = orderDao.get(idorder, customer.getIdcustomer());
+		request.setAttribute("order", order);
+		
+		String detailPage = "frontend/order_detail.jsp";
+		RequestDispatcher dispatcher = request.getRequestDispatcher(detailPage);
+		dispatcher.forward(request, response);
+	}
+
+	public void viewOrderDetailForAdmin() throws ServletException, IOException {
+		int idorder = Integer.parseInt(request.getParameter("id"));
+		Order order = orderDao.get(idorder);
+		
+		request.setAttribute("order", order);
+		
+		String detailPage = "order_detail.jsp";
+		RequestDispatcher dispatcher = request.getRequestDispatcher(detailPage);
+		dispatcher.forward(request, response);
 	}
 
 }

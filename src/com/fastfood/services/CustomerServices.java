@@ -95,6 +95,38 @@ public class CustomerServices {
 			listCustomers(message);
 		}
 	}
+	
+	public void registerCustomer() throws ServletException, IOException, ArrayIndexOutOfBoundsException, HashGenerationException {
+
+		String email = request.getParameter("email");
+		Customer existCustomer = customerDao.findByEmail(email);
+		
+		if (existCustomer != null) {
+			String errorMessage = "Couldn't register because the email " + email + " is already registered by another customer.";
+			request.setAttribute("message", errorMessage);
+			
+			String page = "frontend/register.jsp";
+			RequestDispatcher dispatcher = request.getRequestDispatcher(page);
+			dispatcher.forward(request, response);
+			
+		} else {
+
+			Customer newCustomer = new Customer();
+			updateCustomerFieldsFromForm(newCustomer);
+			customerDao.create(newCustomer);
+			String successMessage = "You have registered successfully ! Thank you.<br/> "
+					+ " <a href='login'> Click here </a> to login.";
+			
+			String messagePage = "frontend/message.jsp";
+			String type = "alert alert-success alert-dismiss fade=show";
+
+			RequestDispatcher requestDispatcher = request.getRequestDispatcher(messagePage);
+			request.setAttribute("message", successMessage);
+			request.setAttribute("type", type);
+			requestDispatcher.forward(request, response);
+		}
+
+	}
 
 	public void editCustomer() throws ServletException, IOException {
 		Integer idcustomer = Integer.parseInt(request.getParameter("id"));

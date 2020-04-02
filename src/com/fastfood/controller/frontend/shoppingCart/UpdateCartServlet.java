@@ -18,11 +18,11 @@ public class UpdateCartServlet extends HttpServlet {
     }
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String[] arrayItemIds = request.getParameterValues("idtem");
+		String[] arrayItemIds = request.getParameterValues("iditem");
 		String[] arrayQuantities = new String[arrayItemIds.length];
 		
 		for(int i=1; i<=arrayQuantities.length; i++){
-			String aQuantity = request.getParameter("quantity" + 1);
+			String aQuantity = request.getParameter("quantity" + i);
 			arrayQuantities[i-1] = aQuantity;
 		}
 		

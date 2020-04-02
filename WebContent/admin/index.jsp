@@ -15,7 +15,7 @@
 
 </head>
 
-<body id="page-top">
+<body>
 	
 	 <!-- header -->
 	<jsp:directive.include file="header.jsp" />
@@ -50,7 +50,7 @@
                 <div class="card-body-icon">
                   <i class="fas fa-fw fa-list"></i>
                 </div>
-                <div class="mr-5">Total Books :</div>
+                <div class="mr-5">Total Items :</div>
               </div>
             </div>
           </div>

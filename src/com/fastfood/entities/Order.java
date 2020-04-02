@@ -6,6 +6,8 @@ import static javax.persistence.GenerationType.IDENTITY;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -80,7 +82,7 @@ public class Order implements java.io.Serializable {
 		this.idorder = idorder;
 	}
 
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "idcustomer", nullable = false)
 	public Customer getCustomer() {
 		return this.customer;
@@ -145,7 +147,7 @@ public class Order implements java.io.Serializable {
 		this.status = status;
 	}
 
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "order")
+	@OneToMany(fetch = FetchType.EAGER, mappedBy = "order", cascade = CascadeType.ALL, orphanRemoval = true)
 	public Set<OrderDetail> getOrderDetails() {
 		return this.orderDetails;
 	}
@@ -158,9 +160,31 @@ public class Order implements java.io.Serializable {
 	public int getItemCopies() {
 		int total = 0;
 		for(OrderDetail orderDetail : orderDetails) {
-			//TODO
+			total += orderDetail.getQuantity();
 		}
 		return total;
+	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + idorder;
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Order other = (Order) obj;
+		if (idorder != other.idorder)
+			return false;
+		return true;
 	}
 
 }

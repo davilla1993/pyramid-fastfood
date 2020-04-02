@@ -30,7 +30,7 @@
 										<div class="caption">
 											<h4>${item.name}</h4>
 												<p>${item.description}</p>
-												<a href="view_item?id=${item.iditem}" class="btn btn-order" role="button" ><span class="glyphicon glyphicon-shopping-cart"></span> VOIR DETAILS</a>
+												<a href="view_item?id=${item.iditem}" class="btn btn-order" role="button" ><span class="glyphicon glyphicon-info-sign"></span> VOIR DETAILS</a>
 										</div>
 									</div>
 								</div>

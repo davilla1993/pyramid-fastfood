@@ -29,7 +29,7 @@
 								</button>
 							</div>
                         </c:if>
-                        <form id="registerForm" method="post" action="create_customer" class="register-form">
+                        <form id="registerForm" method="post" action="register" class="register-form">
                             <div class="form-group">
                                 <label for="fullname"><i class="zmdi zmdi-account material-icons-name"></i></label>
                                 <input type="text" name="fullname" id="fullname" placeholder="Your Full Name"/>
