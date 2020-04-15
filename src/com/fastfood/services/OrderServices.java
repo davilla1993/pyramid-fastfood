@@ -61,6 +61,7 @@ public class OrderServices {
 		int iditem = Integer.parseInt(request.getParameter("iditem"));
 		int quantity = Integer.parseInt(request.getParameter("quantity"));
 		
+		ItemDao itemDao = new ItemDao();
 		Items item = itemDao.get(iditem);
 		
 		HttpSession session = request.getSession();
@@ -80,11 +81,9 @@ public class OrderServices {
 		
 		request.setAttribute("item", item);
 		request.setAttribute("NewItemPendingToAddToOrder", true);
-		String resultPage = "add_book_result.jsp";
+		String resultPage = "add_item_result.jsp";
 		RequestDispatcher dispatcher = request.getRequestDispatcher(resultPage);
-		dispatcher.forward(request, response);
-		
-		
+		dispatcher.forward(request, response);	
 		
 	}
 
@@ -186,6 +185,124 @@ public class OrderServices {
 		String detailPage = "order_detail.jsp";
 		RequestDispatcher dispatcher = request.getRequestDispatcher(detailPage);
 		dispatcher.forward(request, response);
+	}
+
+	public void showEditOrderForm() throws ServletException, IOException {
+			Integer idorder = Integer.parseInt(request.getParameter("id"));
+			
+			HttpSession session = request.getSession();
+			Object isPendingItem = session.getAttribute("NewItemPendingToAddToOrder");
+			
+			if(isPendingItem == null) {
+				
+				Order order = orderDao.get(idorder);
+				session.setAttribute("order", order);
+				
+			} else {
+				session.removeAttribute("NewItemPendingToAddToOrder");
+				
+			}
+			
+			String editPage = "order_form.jsp";
+			RequestDispatcher dispatcher = request.getRequestDispatcher(editPage);
+			dispatcher.forward(request, response);
+			
+		
+	}
+
+	public void updateOrder() throws ServletException, IOException {
+		HttpSession session = request.getSession();
+		Order order = (Order) session.getAttribute("order");
+		
+		String recipientName = request.getParameter("recipientName");
+		String recipientPhone = request.getParameter("recipientPhone");
+		String shippingAddress = request.getParameter("shippingAddress");
+		String orderStatus = request.getParameter("orderStatus");
+		
+		order.setRecipientName(recipientName);
+		order.setRecipientPhone(recipientPhone);
+		order.setShippingAddress(shippingAddress);
+		order.setStatus(orderStatus);
+		
+		String[] arrayItemId = request.getParameterValues("iditem");
+		String[] arrayPrice = request.getParameterValues("price");
+		String[] arrayQuantity = new String[arrayItemId.length];
+		
+		for(int i=1; i<=arrayQuantity.length; i++) {
+			arrayQuantity[i-1] = request.getParameter("quantity" + i);
+		}
+		
+		Set<OrderDetail> orderDetails = order.getOrderDetails();
+		orderDetails.clear();
+		
+		float totalAmount = 0.0f;
+		
+		for(int i=0; i<arrayItemId.length; i++) {
+			
+			int iditem = Integer.parseInt(arrayItemId[i]);
+			int quantity = Integer.parseInt(arrayQuantity[i]);
+			float price = Float.parseFloat(arrayPrice[i]);
+			float subtotal = price * quantity;
+			
+			OrderDetail orderDetail = new OrderDetail();
+			orderDetail.setItems(new Items(iditem));
+			orderDetail.setQuantity(quantity);
+			orderDetail.setSubtotal(subtotal);
+			orderDetail.setOrder(order);
+			
+			orderDetails.add(orderDetail);
+			
+			totalAmount += subtotal;
+		}
+		
+		order.setTotal(totalAmount);
+		orderDao.update(order);
+		
+		String message = "The order has been update successfully !!";
+		listAllOrder(message);
+		
+		
+	}
+
+	public void deleteOrder() throws ServletException, IOException {
+		Integer idorder = Integer.parseInt(request.getParameter("id"));
+		orderDao.delete(idorder);
+		
+		String message = "The order has been deleted sucessfully !!!";
+		listAllOrder(message);
+	}
+
+	public void removeItemFromOrder() throws ServletException, IOException {
+		int iditem = Integer.parseInt(request.getParameter("id"));
+		HttpSession session = request.getSession();
+		Order order = (Order) session.getAttribute("order");
+		
+		Set<OrderDetail> orderDetails = order.getOrderDetails();
+		Iterator<OrderDetail> iterator = orderDetails.iterator();
+		
+		while(iterator.hasNext()) {
+			OrderDetail orderDetail = iterator.next();
+			if(orderDetail.getItems().getIditem() == iditem) {
+				float newTotal = order.getTotal() - orderDetail.getSubtotal();
+				order.setTotal(newTotal);
+				iterator.remove();
+			}
+		}
+		
+		String editOrderFormPage = "order_form.jsp";
+		RequestDispatcher dispatcher = request.getRequestDispatcher(editOrderFormPage);
+		dispatcher.forward(request, response);
+		
+	}
+
+	public void showAddItemForm() throws ServletException, IOException {
+		List<Items> listItems = itemDao.listAll();
+		request.setAttribute("listItems", listItems);
+		
+		String addFormPage = "add_item_form.jsp";
+		RequestDispatcher dispatcher = request.getRequestDispatcher(addFormPage);
+		dispatcher.forward(request, response);
+		
 	}
 
 }

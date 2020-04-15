@@ -1,4 +1,4 @@
-@charset "ISO-8859-1";
+@charset "utf-8";
 
 #headermenu {
 	
@@ -13,13 +13,13 @@
 
 a:link {
 	
-	color : cornflowerBlue;
+	color : white;
 	text-decoration : none;
 }
 
 a:visited {
 	
-	color : indigo;
+	color : white;
 }
 
 a:hover {
@@ -93,7 +93,7 @@ input {
 	height : 20px;
 }
 
- .message {
+.message {
 	font-style : italic;
 	color : blue;
 }
@@ -173,4 +173,10 @@ img.book-small {
 	vertical-align:top;
 }
 
-
+.grid
+{
+    background: #eee;
+    padding: 40px;
+    margin-top : 20px;
+    border-radius: 10px;
+}

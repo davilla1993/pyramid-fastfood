@@ -28,7 +28,7 @@
                     <p>The server encountered something unexpected that didn't allow it to complete the request. We apologize.</p>
                 </div>
                  <div class="back-link back-backend">
-                    <a href="${pageContext.request.contextPath}" class="btn btn-primary text-enter">Return home</a>
+                    <a href="javascript:history.go(-1);" class="btn btn-primary text-enter">Go Back</a>
                 </div>
             </div>
             <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12"></div>

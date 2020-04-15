@@ -1,5 +1,9 @@
+<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
 
@@ -40,7 +44,7 @@
                 <div class="card-body-icon">
                   <i class="fas fa-fw fa-comments"></i>
                 </div>
-                <div class="mr-5">Total Users : </div>
+                <div class="mr-5">Total Users : ${totalUsers} </div>
               </div>
             </div>
           </div>
@@ -50,7 +54,7 @@
                 <div class="card-body-icon">
                   <i class="fas fa-fw fa-list"></i>
                 </div>
-                <div class="mr-5">Total Items :</div>
+                <div class="mr-5">Total Items : ${totalItems} </div>
               </div>
             </div>
           </div>
@@ -60,7 +64,7 @@
                 <div class="card-body-icon">
                   <i class="fas fa-fw fa-shopping-cart"></i>
                 </div>
-                <div class="mr-5">Total Customers : </div>
+                <div class="mr-5">Total Customers : ${totalCustomers} </div>
               </div>
             </div>
           </div>
@@ -70,7 +74,7 @@
                 <div class="card-body-icon">
                   <i class="fas fa-fw fa-life-ring"></i>
                 </div>
-                <div class="mr-5">Total Orders : </div>
+                <div class="mr-5">Total Orders : ${totalOrders} </div>
               </div>
             </div>
           </div>
@@ -89,29 +93,22 @@
                     <th>Ordered By</th>
                     <th>Items quantities</th>
                     <th>Total</th>
-                    <th>Payment Method</th>
                     <th>Status</th>
                     <th>Order Date</th>
                   </tr>
                 </thead>
                 
                 <tbody>
-                  <tr>
-                    <td>Tiger Nixon</td>
-                    <td>System Architect</td>
-                    <td>Edinburgh</td>
-                    <td>61</td>
-                    <td>2011/04/25</td>
-                    <td>$320,800</td>
-                  </tr>
-                  <tr>
-                    <td>Garrett Winters</td>
-                    <td>Accountant</td>
-                    <td>Tokyo</td>
-                    <td>63</td>
-                    <td>2011/07/25</td>
-                    <td>$170,750</td>
-                  </tr>    
+                	<c:forEach items="${listMostRecentSales}" var="order" varStatus="status">
+                		<tr>
+                			<td><a href="view_order?id=${order.idorder}">${order.idorder}</a></td>
+                			<td>${order.customer.fullname}</td>
+                		    <td>${order.itemCopies}</td>
+        					<td><fmt:formatNumber value="${order.total}" type="currency" currencySymbol="&euro;"/></td>
+        					<td>${order.status}</td>
+        		        	<td>${order.orderDate}</td>
+                		</tr>
+                	</c:forEach>
                 </tbody>
               </table>
             </div>
@@ -124,7 +121,7 @@
       <footer class="sticky-footer">
         <div class="container my-auto">
           <div class="copyright text-center my-auto">
-            <span>Copyright © Pyramid Tech Agency  2019</span>
+            <span>Copyright Â© Pyramid Tech 2019</span>
           </div>
         </div>
       </footer>
@@ -147,7 +144,7 @@
         <div class="modal-header">
           <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
           <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">×</span>
+            <span aria-hidden="true">Ã—</span>
           </button>
         </div>
         <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>

@@ -10,10 +10,14 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import com.fastfood.dao.CustomerDao;
+import com.fastfood.dao.ItemDao;
 import com.fastfood.dao.OrderDao;
+import com.fastfood.dao.UserDao;
 import com.fastfood.entities.Order;
 
-@WebServlet("/admin")
+@WebServlet("/admin/")
 public class AdminHomeServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -33,8 +37,23 @@ public class AdminHomeServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		List<Order> listOrder = orderDao.listAll();
-		request.setAttribute("listOrder", listOrder);
+		UserDao userDao = new UserDao();
+		ItemDao itemDao = new ItemDao();
+		CustomerDao customerDao = new CustomerDao();
+		OrderDao orderDao = new OrderDao();
+			
+		long totalUsers = userDao.count();
+		long totalItems = itemDao.count();
+		long totalCustomers = customerDao.count();
+		long totalOrders = orderDao.count();
+		
+		List<Order> listMostRecentSales = orderDao.listMostRecentSales();
+		
+		request.setAttribute("totalUsers", totalUsers);
+		request.setAttribute("totalItems", totalItems);
+		request.setAttribute("totalCustomers",totalCustomers);
+		request.setAttribute("totalOrders", totalOrders);
+		request.setAttribute("listMostRecentSales",listMostRecentSales);
 		
 		String homePage = "index.jsp";
 		RequestDispatcher dispatcher = request.getRequestDispatcher(homePage);

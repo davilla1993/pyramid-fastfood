@@ -22,7 +22,7 @@
 		    <div >
         		<h1 class="display-1 text-center">404</h1>
         		<p class="lead text-center">Page not found. You can
-          		<a href="javascript:history.back()">go back</a> to the previous page, or
+          		<a href="javascript:history.go(-1)">go back</a> to the previous page, or
           		<a href="${pageContext.request.contextPath}">return home</a>.</p>
 			</div>&nbsp;&nbsp;&nbsp;&nbsp;
 			

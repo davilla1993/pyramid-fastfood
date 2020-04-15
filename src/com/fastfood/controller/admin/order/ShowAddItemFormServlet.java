@@ -9,17 +9,20 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.fastfood.services.OrderServices;
 
-@WebServlet("/admin/add_item_to_order")
-public class AddItemToOrderServlet extends HttpServlet {
+
+@WebServlet("/admin/add_item_form")
+public class ShowAddItemFormServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-    public AddItemToOrderServlet() {
+    
+    public ShowAddItemFormServlet() {
         super();
     }
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		OrderServices orderServices = new OrderServices(request, response);
-		orderServices.addItemToOrder();
+		orderServices.showAddItemForm();
 	}
 
 }

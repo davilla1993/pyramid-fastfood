@@ -59,7 +59,7 @@ public class OrderDao extends JpaDao<Order> implements GenericDao<Order> {
 	}
 	
 	public List<Order> listMostRecentSales(){
-		return super.findWithNamedQuery("Order.findAll", 0, 3);
+		return super.findWithNamedQuery("Order.findAll", 0, 10);
 	}
 
 }

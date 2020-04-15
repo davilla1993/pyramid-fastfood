@@ -2,6 +2,6 @@
 
 	<ol class="breadcrumb">
     	<li class="breadcrumb-item">
-        	<a href="#">PYRAMID FASTFOOD ADMINISTRATION DASHBOARD</a>
+        	<a href="${pageContext.request.contextPath}/admin">PYRAMID FASTFOOD ADMINISTRATION DASHBOARD</a>
         </li>
     </ol>

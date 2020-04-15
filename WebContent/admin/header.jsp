@@ -1,7 +1,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <nav class="navbar navbar-expand navbar-dark bg-dark static-top">
-    <a class="navbar-brand mr-1" href="index.jsp">Admin Dashboard</a>
+    <a class="navbar-brand mr-1" href="${pageContext.request.contextPath}/admin">Admin Dashboard</a>
 
     <button class="btn btn-link btn-sm text-white order-1 order-sm-0" id="sidebarToggle">
       <i class="fas fa-bars"></i>
@@ -21,7 +21,6 @@
           <i class="fas fa-user-circle fa-fw"></i>
         </a>
         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
-          <a class="dropdown-item" href="#">Profile</a>
           <a class="dropdown-item" href="logout">Logout</a>
         </div>
       </li>
