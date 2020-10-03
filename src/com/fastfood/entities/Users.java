@@ -12,7 +12,7 @@ import javax.persistence.Table;
 
 
 @Entity
-@Table(name = "users", catalog = "fastfood_db")
+@Table(name = "users", catalog = "heroku_4cf8e2888dd4dea")
 @NamedQueries({
 	@NamedQuery(name = "Users.findAll" , query = "SELECT u FROM Users u ORDER BY u.fullname"),
 	@NamedQuery(name = "Users.countAll" , query = "SELECT COUNT(*) FROM Users u "),

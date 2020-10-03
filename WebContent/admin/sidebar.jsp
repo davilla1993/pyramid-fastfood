@@ -9,8 +9,8 @@
       </li>
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <i class="fas fa-fw fa-folder"></i>
-          <span>Users</span>
+         <img src="${pageContext.request.contextPath}/images/user.ico"/>
+          Users
         </a>
         <div class="dropdown-menu" aria-labelledby="pagesDropdown">
           <a class="dropdown-item" href="list_users">All Users</a>
@@ -20,9 +20,10 @@
       
         <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <i class="fas fa-fw fa-folder"></i>
-          <span>Categories</span>
+         <img src="${pageContext.request.contextPath}/images/category.ico"/>
+          Categories
         </a>
+  
         <div class="dropdown-menu" aria-labelledby="pagesDropdown">
           <a class="dropdown-item" href="list_category">All categories</a>
           <a class="dropdown-item" href="create_category">New category</a>
@@ -31,8 +32,8 @@
       
         <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <i class="fas fa-fw fa-folder"></i>
-          <span>Items</span>
+          <img src="${pageContext.request.contextPath}/images/item.ico"/>
+          Items
         </a>
         <div class="dropdown-menu" aria-labelledby="pagesDropdown">
           <a class="dropdown-item" href="list_item">All items</a>
@@ -42,8 +43,8 @@
       
         <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <i class="fas fa-fw fa-folder"></i>
-          <span>Customers</span>
+		  <img src="${pageContext.request.contextPath}/images/customer.ico"/>
+          Customers
         </a>
         <div class="dropdown-menu" aria-labelledby="pagesDropdown">
           <a class="dropdown-item" href="list_customer">All customers</a>
@@ -53,8 +54,8 @@
       
         <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <i class="fas fa-fw fa-folder"></i>
-          <span>Reviews</span>
+         <img src="${pageContext.request.contextPath}/images/review.ico"/>
+          Reviews
         </a>
         <div class="dropdown-menu" aria-labelledby="pagesDropdown">
           <a class="dropdown-item" href="#">All reviews</a>
@@ -63,8 +64,8 @@
       
        <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <i class="fas fa-fw fa-folder"></i>
-          <span>Orders</span>
+           <img src="${pageContext.request.contextPath}/images/order.ico"/>
+          Orders
         </a>
         <div class="dropdown-menu" aria-labelledby="pagesDropdown">
           <a class="dropdown-item" href="list_order">All orders</a>

@@ -14,7 +14,7 @@ import javax.persistence.TemporalType;
 
 
 @Entity
-@Table(name = "review", catalog = "fastfood_db")
+@Table(name = "review", catalog = "heroku_4cf8e2888dd4dea")
 public class Review implements java.io.Serializable {
 
 	private static final long serialVersionUID = 6972238450788436148L;

@@ -7,7 +7,7 @@ public class HashPasswordTest {
 
 	public static void main(String[] args) throws HashGenerationException {
 		
-		String pwd = "test";
+		String pwd = "123";
 		String password = HashGeneratorUtils.generateSHA256(pwd);
 		System.out.println(password);
 	}

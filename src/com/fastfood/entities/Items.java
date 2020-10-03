@@ -21,7 +21,7 @@ import javax.persistence.Transient;
 import javax.persistence.UniqueConstraint;
 
 @Entity
-@Table(name = "items", catalog = "fastfood_db", uniqueConstraints = @UniqueConstraint(columnNames = "name"))
+@Table(name = "items", catalog = "heroku_4cf8e2888dd4dea", uniqueConstraints = @UniqueConstraint(columnNames = "name"))
 @NamedQueries({
 	@NamedQuery(name ="Items.findAll" , query="SELECT i FROM Items i ORDER BY i.iditem"),
 	@NamedQuery(name ="Items.countAll" , query ="SELECT COUNT(*) FROM Items i "),

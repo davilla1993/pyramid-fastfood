@@ -121,7 +121,7 @@
       <footer class="sticky-footer">
         <div class="container my-auto">
           <div class="copyright text-center my-auto">
-            <span>Copyright © Pyramid Tech 2019</span>
+            <span>Copyright © <a href="http://www.follytech.com">follytech</a>2019</span>
           </div>
         </div>
       </footer>

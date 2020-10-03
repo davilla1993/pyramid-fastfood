@@ -43,7 +43,7 @@
                                 <input type="text" name="city" id="city" placeholder="Your city"/>
                             </div>
 							<div class="form-group">
-                                <label for="address"><i class="zmdi zmdi-account material-icons-name"></i></label>
+                                <label for="address"><span class="glyphicon glyphicon-map-marker"></span></label>
                                 <input type="text" name="address" id="address" placeholder="Your address"/>
                             </div>
  							<div class="form-group">

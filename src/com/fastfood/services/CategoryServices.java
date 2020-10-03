@@ -46,6 +46,7 @@ public class CategoryServices {
 	}
 	
 	public void createCategory() throws ServletException, IOException, NumberFormatException {
+		
 		String name = tr.transform(request.getParameter("name"));
 		Category existCategory = categoryDao.findByName(name);
 		

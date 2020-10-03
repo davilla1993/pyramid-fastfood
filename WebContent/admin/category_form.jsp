@@ -31,7 +31,7 @@
                         </c:if>
                         <form id="registerForm" method="post" action="create_category" class="register-form">
                             <div class="form-group">
-                                <label for="name"><i class="zmdi zmdi-account material-icons-name"></i></label>
+                                <label for="name"></label>
                                 <input type="text" name="name" id="name" placeholder="Category Name"/>
                             </div>
                     

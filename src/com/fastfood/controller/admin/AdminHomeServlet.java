@@ -19,7 +19,7 @@ import com.fastfood.entities.Order;
 
 @WebServlet("/admin/")
 public class AdminHomeServlet extends HttpServlet {
-	private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = 1L; 
 
 	private OrderDao orderDao;
 	

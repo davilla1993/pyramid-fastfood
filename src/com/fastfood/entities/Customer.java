@@ -20,7 +20,7 @@ import javax.persistence.TemporalType;
 import javax.persistence.UniqueConstraint;
 
 @Entity
-@Table(name = "customer", catalog = "fastfood_db", uniqueConstraints = @UniqueConstraint(columnNames = "email"))
+@Table(name = "customer", catalog = "heroku_4cf8e2888dd4dea", uniqueConstraints = @UniqueConstraint(columnNames = "email"))
 @NamedQueries({
 	@NamedQuery(name = "Customer.findAll" , query = "SELECT c FROM Customer c ORDER BY c.registerDate DESC"),
 	@NamedQuery(name = "Customer.countAll" , query = "SELECT COUNT(c.email) FROM Customer c "),
